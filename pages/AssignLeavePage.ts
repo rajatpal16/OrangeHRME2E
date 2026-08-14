@@ -21,9 +21,10 @@ export class AssignLeavePage {
 
     }
     async selectEmployeeName (name : string){
-        await this.employeeName.fill(name);
+        await this.employeeName.click();
+        await this.employeeName.pressSequentially(name ,{delay :100})
         //wait for autocomplete dropdown option to appear
-        const suggestion = this.page.locator('//div[contains(@class,"autocomplete-dropdown")]', {hasText:name});
+        const suggestion = this.page.getByRole('option',{name});
         await suggestion.first().waitFor({state:"visible"});
         await suggestion.first().click();
     }

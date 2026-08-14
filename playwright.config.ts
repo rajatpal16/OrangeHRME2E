@@ -58,11 +58,11 @@ export default defineConfig({
 
 
     },
-    {
-      name: 'Chromium',
-      use: { ...devices['Desktop Chrome']},
+    // {
+    //   name: 'Chromium',
+    //   use: { ...devices['Desktop Chrome']},
       
-    },
+    // },
 
     // {
     //   name: 'firefox',

@@ -9,7 +9,7 @@ test('fill the employee name field', async ({page}) => {
     const assignLeavePage = new AssignLeavePage(page);
     await loginPage.goto();
     await dashboardPage.navigateToAssignLeave();
-    await assignLeavePage.selectEmployeeName('Ranga  Akunuri');
+    await assignLeavePage.selectEmployeeName('Virat Kohli');
     await assignLeavePage.selectLeaveType('CAN - FMLA');
     
 

@@ -17,9 +17,9 @@ test ('Verify Add Entitlement Page', async ({page}) => {
     await entitlementPage.selectEntitlementType('Add Entitlements');
     await expect(page).toHaveURL(/leave\/addLeaveEntitlement/);
     await expect(entitlementPage.pageTitle).toHaveText(/Add Leave Entitlement/);
-    await entitlementPage.selectEmployeeName('Charles Carter');
+    await entitlementPage.selectEmployeeName('Peter Mac Anderson');
     await entitlementPage.selectLeaveType('CAN - Vacation');
-    await entitlementPage.selectLeavePeriod('2026-01-01 - 2026-31-12');
+    await entitlementPage.selectLeavePeriod('01-01-2026 - 31-12-2026');
     await entitlementPage.entitlementDays(10);
     await entitlementPage.clickSave();
     await entitlementPage.clickConfirmButton();

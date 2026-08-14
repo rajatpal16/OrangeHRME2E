@@ -1,6 +1,7 @@
 import {Page, Locator} from '@playwright/test';
 export class DashboardPage {
     readonly page : Page;
+    readonly leaveMenu: Locator;
     readonly assignLeave : Locator;
     readonly leaveList : Locator;
     readonly timeSheets : Locator;
@@ -11,16 +12,18 @@ export class DashboardPage {
 
 constructor (page : Page){
     this.page = page;
-    this.assignLeave = page.getByRole('button',{name: "Assign Leave"});
+    this.leaveMenu = page.getByRole('link', { name: 'Leave', exact: true });
+    this.assignLeave = page.getByRole('link',{name: "Assign Leave"});
     this.leaveList= page.getByRole('button', {name : "Leave List"});
     this.timeSheets = page.getByRole('button', {name :"Timesheets"});
-    this.applyLeave = page.getByRole('button' , {name : "Apply Leave"});
+    this.applyLeave = page.getByRole('link' , {name : "Apply Leave"});
     this.myLeave = page.getByRole('button',{name : "My Leave"});
     this.mytimeSheet =page.getByRole('button', {name:"My Timesheet"});
-    this.assignleaveTitle =page.locator('//h6[text()="Assign Leave"]');
+    this.assignleaveTitle =page.getByRole('heading', { name: 'Assign Leave' });
     }
 
     async navigateToAssignLeave (){
+        await this.leaveMenu.click();
         await this.assignLeave.click();
     }
     async navigateToLeaveList (){

@@ -29,13 +29,15 @@ export class EntitlementPage {
         await option.waitFor({state:"visible"});
         await option.click();
     }
-    async selectEmployeeName (name:string){
-        await this.employeeName.click();
-        await this.employeeName.fill(name);
-        const option = this.page.getByRole('option',{name});
-        await option.waitFor({state : "visible"});
-        await option.click();
+    async selectEmployeeName(name: string) {
+    await this.employeeName.click();
+    await this.employeeName.pressSequentially(name, { delay: 100 });
+
+    const option = this.page.getByRole('option', { name });
+    await option.first().waitFor({ state: 'visible' });
+    await option.first().click();
     }
+    
     async selectLeaveType (name:string){
         await this.leaveType.click();
         const option = this.page.getByRole('option',{name});

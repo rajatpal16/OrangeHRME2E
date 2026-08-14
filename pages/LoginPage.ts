@@ -15,8 +15,8 @@ constructor (page : Page){
     this.usernameInput = page.getByPlaceholder('Username');
     this.passwordInput = page.getByPlaceholder('Password');
     this.loginButton = page.getByRole('button', {name: " Login "});
-    this.usernameError = page.locator('//span[text() ="Required"]');
-    this.passwordError = page.locator('//span[text() ="Required"]');
+    this.usernameError = page.locator('//span[text() ="Required"]').first();
+    this.passwordError = page.locator('//span[text() ="Required"]').last();
     this.loginError =page.locator('//p[text() ="Invalid credentials"]');
     this.pageTitle = page.locator('//h6[text()="Dashboard"]');
 }
